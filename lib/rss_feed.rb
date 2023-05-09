@@ -11,9 +11,10 @@ module RSSFeed
 
   # OpenSearch 1.1 Draft 4 namespace
   NS_OPENSEARCH_11 = "http://a9.com/-/spec/opensearch/1.1/"
+  NS_MEDIA = "http://search.yahoo.com/mrss/"
 
   # Well-known namespaces for use in Nokogiri
-  NS = {"rss" => "", "opensearch" => NS_OPENSEARCH_11}
+  NS = {"rss" => "", "opensearch" => NS_OPENSEARCH_11, "media": NS_MEDIA}
 
   autoload :CoreExt,         'rss_feed/core_ext.rb'
   autoload :OpenSearch,      'rss_feed/open_search.rb'
@@ -25,6 +26,7 @@ module RSSFeed
   autoload :RSSEnclosure,    'rss_feed/rss_enclosure.rb'
   autoload :RSSGuid,         'rss_feed/rss_guid.rb'
   autoload :RSSImage,        'rss_feed/rss_image.rb'
+  autoload :RSSMediaThumbnail,        'rss_feed/rss_media_thumbnail.rb'
   autoload :RSSSource,       'rss_feed/rss_source.rb'
   autoload :RSSTextInput,    'rss_feed/rss_text_input.rb'
 end

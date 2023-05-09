@@ -36,6 +36,10 @@ class TestChannelItem < Test::Unit::TestCase
     should "have publication date" do
       assert_equal Time.utc(2003,6,3,9,39,21), @item.pub_date
     end
+    should "have thumbnail" do
+      assert_not_nil media_thumbnail = @item.media_thumbnail
+      assert_equal "hogehoge", media_thumbnail.url
+    end
     should "have guid" do
       assert_not_nil guid = @item.guid
       assert_equal "http://liftoff.msfc.nasa.gov/2003/06/03.html#item573", guid.content
@@ -45,7 +49,8 @@ class TestChannelItem < Test::Unit::TestCase
 
   VALID_XML = <<EOF
 <?xml version="1.0"?> 
-<rss version="2.0"> 
+<rss version="2.0"
+  xmlns:media="http://search.yahoo.com/mrss/"> 
   <channel> 
     <title>Liftoff News</title> 
     <link>http://liftoff.msfc.nasa.gov/</link> 
@@ -62,6 +67,7 @@ class TestChannelItem < Test::Unit::TestCase
       <link>http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp</link> 
       <description>How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's &lt;a href="http://howe.iki.rssi.ru/GCTC/gctc_e.htm"&gt;Star City&lt;/a&gt;.</description> 
       <pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate> 
+      <media:thumbnail url="hogehoge" />
       <guid>http://liftoff.msfc.nasa.gov/2003/06/03.html#item573</guid> 
     </item>
   </channel>

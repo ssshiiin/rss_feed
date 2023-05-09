@@ -69,5 +69,12 @@ module RSSFeed
       end
     end
 
+    # media (optional).
+    def media_thumbnail
+      if node = @node.at_xpath("media:thumbnail", ::RSSFeed::NS)
+        RSSMediaThumbnail.new(node)
+      end
+    end
+
   end
 end
