@@ -76,5 +76,10 @@ module RSSFeed
       end
     end
 
+    # related_link (optional).
+    def related_links
+      nodes = @node.xpath("relatedlink") || []
+      nodes.map { |node| RSSRelatedLink.new(node) }
+    end
   end
 end

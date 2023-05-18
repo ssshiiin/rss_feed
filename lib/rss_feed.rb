@@ -27,6 +27,7 @@ module RSSFeed
   autoload :RSSGuid,         'rss_feed/rss_guid.rb'
   autoload :RSSImage,        'rss_feed/rss_image.rb'
   autoload :RSSMediaThumbnail,        'rss_feed/rss_media_thumbnail.rb'
+  autoload :RSSRelatedLink,  'rss_feed/rss_related_link.rb'
   autoload :RSSSource,       'rss_feed/rss_source.rb'
   autoload :RSSTextInput,    'rss_feed/rss_text_input.rb'
 end
