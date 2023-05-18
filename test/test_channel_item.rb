@@ -45,6 +45,13 @@ class TestChannelItem < Test::Unit::TestCase
       assert_equal "http://liftoff.msfc.nasa.gov/2003/06/03.html#item573", guid.content
       assert !guid.is_permalink?
     end
+    should "have related_links" do
+      related_links = @item.related_links
+      assert_equal "related-1 title", related_links[0].title
+      assert_equal "related-1 link", related_links[0].link
+      assert_equal "related-2 title", related_links[1].title
+      assert_equal "related-2 link", related_links[1].link
+    end
   end
 
   VALID_XML = <<EOF
@@ -69,6 +76,8 @@ class TestChannelItem < Test::Unit::TestCase
       <pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate> 
       <media:thumbnail url="hogehoge" />
       <guid>http://liftoff.msfc.nasa.gov/2003/06/03.html#item573</guid> 
+      <relatedlink title="related-1 title" link="related-1 link" />
+      <relatedlink title="related-2 title" link="related-2 link" />
     </item>
   </channel>
 </rss>
